@@ -17,6 +17,7 @@
   overflow: hidden;
   border: var(--border);
   background: $milk;
+  background-clip: padding-box;   // keep the fill out from under the dashed border
   isolation: isolate;
 }
 @media (max-width: 500px) { .home-cover { height: 180px; } }
