@@ -1,0 +1,28 @@
+{%- comment -%}
+  Previous / next guide links, in menu order (order, then nav_group).
+  Subpages (front matter `parent:`) are left out of the sequence and get no pager.
+  Usage: {% include guide-pager.html position="top" %} or position="bottom".
+{%- endcomment -%}
+{%- assign seq = site.guides | where_exp: "g", "g.parent == nil" | sort: "order" -%}
+{%- assign prev = nil -%}{%- assign next = nil -%}{%- assign found = false -%}
+{%- for g in seq -%}
+  {%- if found and next == nil -%}{%- assign next = g -%}{%- endif -%}
+  {%- if g.url == page.url -%}{%- assign found = true -%}{%- endif -%}
+  {%- unless found -%}{%- assign prev = g -%}{%- endunless -%}
+{%- endfor -%}
+{%- if found -%}
+<nav class="guide-pager guide-pager-{{ include.position }}" aria-label="{% if include.position == 'top' %}Guide navigation{% else %}More guides{% endif %}">
+  {%- if prev %}
+  <a class="pager-prev" href="{{ prev.url | relative_url }}" rel="prev">
+    <span class="pager-label">← Previous</span>
+    <span class="pager-title">{{ prev.title }}</span>
+  </a>
+  {%- else %}<span class="pager-spacer"></span>{%- endif %}
+  {%- if next %}
+  <a class="pager-next" href="{{ next.url | relative_url }}" rel="next">
+    <span class="pager-label">Next →</span>
+    <span class="pager-title">{{ next.title }}</span>
+  </a>
+  {%- endif %}
+</nav>
+{%- endif -%}

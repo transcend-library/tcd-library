@@ -1,0 +1,169 @@
+/**
+ * Animated home page cover — a mix of two CodePens (both MIT):
+ *  - "Morning Sun Gradient (no div)" by Niall: sky gradient (the original
+ *    crescent moon and skyline have been replaced with custom artwork).  https://codepen.io/niallains/pen/RwjNPjM
+ *  - "Night Sky with twinkling stars" by getdesigning: rotating star field,
+ *    twinkling cross-flare stars.  https://codepen.io/getdesigning/pen/xbGjJX
+ *  - "Clouds over Springfield" by z4p0: drifting daytime clouds (SVG shapes;
+ *    GSAP animation replaced with CSS).  https://codepen.io/z4p0/pen/ExmjMJx
+ * Light mode shows the morning sky, dark mode the night sky; the theme toggle
+ * crossfades between them (--night is set in _colors.scss).
+ */
+
+.home-cover {
+  position: relative;
+  height: 240px;
+  margin: 0 0 1.2em;
+  overflow: hidden;
+  border: var(--border);
+  background: $milk;
+  isolation: isolate;
+}
+@media (max-width: 500px) { .home-cover { height: 180px; } }
+
+/* Sky gradients: two layers so the theme switch can fade between them */
+.home-cover-sky { position: absolute; inset: 0; transition: opacity 0.8s ease; }
+.home-cover-day {
+  background: linear-gradient($blue 0%, $pale-blue 42%, $pale-pink 74%, $pink 100%);
+}
+.home-cover-night {
+  opacity: var(--night);
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba($pink, 0.38) 0%, rgba($purple, 0.32) 35%, rgba($purple, 0) 70%),
+    linear-gradient($jungle 0%, mix($jungle, $purple, 82%) 70%, mix($jungle, $purple, 62%) 100%);
+}
+
+/* Star field: a square larger than the cover, slowly rotating about its centre */
+.home-cover-stars {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  width: 160%;
+  aspect-ratio: 1;
+  opacity: var(--night);
+  transition: opacity 0.8s ease;
+  animation: home-cover-rotate 250s infinite linear;
+  will-change: transform;
+}
+@keyframes home-cover-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Twinkling star (from the night-sky pen, ported from Sass/jQuery) */
+.star {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: $milk;
+  transform: rotate(0deg) scale(0.08);
+  animation: home-cover-twinkle 15s infinite ease-out;
+  backface-visibility: hidden;
+}
+.star > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: rotate(45deg) scale(0.75);
+  box-shadow: 0 0 2px 8px rgba(0, 0, 0, 0.35),
+              0 0 2px 9px rgba(255, 255, 255, 0.07),
+              0 0 2px 15px rgba(0, 0, 0, 0.35),
+              0 0 2px 16px rgba(255, 255, 255, 0.1);
+}
+// Four light flares: two on the star, two on its rotated inner div
+.star::before, .star::after, .star > div::before, .star > div::after {
+  content: '';
+  position: absolute;
+  top: -350%;
+  left: 45%;
+  width: 10%;
+  height: 800%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.1) 100%);
+  box-shadow: 0 0 25px $milk;
+}
+.star::before, .star > div::before { transform: rotate(90deg); }
+.star.pink::before, .star.pink::after, .star.pink > div::before, .star.pink > div::after { box-shadow: 0 0 25px $pink; }
+.star.blue::before, .star.blue::after, .star.blue > div::before, .star.blue > div::after { box-shadow: 0 0 25px $blue; }
+
+@keyframes home-cover-twinkle {
+  0%   { transform: rotate(0deg) scale(0.08); }
+  4%   { transform: rotate(-20deg) scale(0.9); }
+  8%   { transform: rotate(-40deg) scale(0.08); }
+  50%  { transform: rotate(-40deg) scale(0.08); }
+  52%  { transform: rotate(-50deg) scale(0.3); }
+  54%  { transform: rotate(-60deg) scale(0.08); }
+  100% { transform: rotate(0deg) scale(0.08); }
+}
+
+/* Moon (assets/img/moon.svg). By day it's brightened and screen-blended with
+   the sky, so it reads as a pale, washed-out daytime moon; at night it's drawn
+   as-is with a glow. */
+.home-cover-moon {
+  position: absolute;
+  top: 14%;
+  left: 15%;
+  width: 44px;
+  height: 44px;
+  mix-blend-mode: var(--moon-blend);
+  // Day: 1.3× brightness on top of the screen blend; night: normal brightness + glow.
+  filter: brightness(calc(1.3 - var(--night) * 0.3))
+          drop-shadow(0 0 calc(var(--night) * 10px) rgba(255, 255, 255, calc(var(--night) * 0.55)));
+  transition: filter 0.8s ease;
+}
+
+/* Drifting clouds (daytime only; fade out with the morning sky).
+   Each .cloud is a full-width track that slides right by its own width plus
+   the cover's; the SVG starts just off the left edge. Per-cloud --w, --top,
+   --dur and --p (starting progress) are set inline in home-cover-clouds.html. */
+.home-cover-cloud-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.home-cover-clouds {
+  position: absolute;
+  inset: 0;
+  opacity: calc(1 - var(--night));
+  transition: opacity 0.8s ease;
+}
+.cloud {
+  position: absolute;
+  inset: 0;
+  animation: home-cover-drift var(--dur) linear infinite;
+  animation-delay: calc(var(--dur) * var(--p) * -1);
+  will-change: transform;
+}
+.cloud svg {
+  position: absolute;
+  top: var(--top);
+  left: calc(var(--w) * -1);
+  width: var(--w);
+  height: auto;
+  overflow: visible;
+}
+@keyframes home-cover-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100% + var(--w))); }
+}
+
+/* Skyline: day / night artwork (assets/img/skyline-*.svg, 2160 × 720).
+   Drawn at 3:1; on narrower covers the sides are cropped and the centre kept. */
+.home-cover-skyline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  transition: opacity 0.8s ease;
+}
+.home-cover-skyline-day { opacity: calc(1 - var(--night)); }
+.home-cover-skyline-night { opacity: var(--night); }
+
+/* Paused when scrolled out of view (home-cover.js) and for reduced motion */
+.home-cover.is-paused .home-cover-stars,
+.home-cover.is-paused .star,
+.home-cover.is-paused .cloud { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .home-cover-stars { animation: none; transform: translate(-50%, -50%); }
+  .star { animation: none; transform: scale(0.25); }
+  .cloud { animation-play-state: paused; }  // frozen at their starting spots
+}

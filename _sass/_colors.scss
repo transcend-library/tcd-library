@@ -1,0 +1,77 @@
+/**
+ * Transcend (2023) palette.
+ * Pale Blue / Pale Pink are gradient-only in the brand guide, so they appear
+ * only in the wordmark gradient.
+ */
+$jungle:     #1E1F22;  // Dark Jungle Green
+$milk:       #FBF9F5;  // Milk
+$pink:       #FFAFC7;  // Cherry Blossom Pink
+$blue:       #74D7EC;  // Sky Blue
+$pale-blue:  #B8E8F1;  // gradient only
+$pale-pink:  #FDD4DE;  // gradient only
+$purple:     #967BB6;  // non-binary pages + callouts
+
+@mixin light() {
+  --base-color: #{$jungle};
+  --background-color: #{$milk};
+  --text-color: #{$jungle};
+  --muted-color: rgba(30, 31, 34, 0.68);
+  --link-color: #{$jungle};
+  --border: dashed 1px rgba(30, 31, 34, 0.9);
+  --soft-border: 1px solid rgba(30, 31, 34, 0.15);
+  --panel-background: rgba(30, 31, 34, 0.04);
+  --selection-text: #{$jungle};
+  --wordmark-background: none;
+  --wordmark-fill: currentColor;
+  --moon-blend: screen;  // home cover: pale daytime moon
+  --light-only: block;   // .light-only / .dark-only images (e.g. logos)
+  --dark-only: none;
+  --night: 0;            // home cover: morning sky
+  color-scheme: light;
+}
+
+@mixin dark() {
+  --base-color: #{$milk};
+  --background-color: #{$jungle};
+  --text-color: #{$milk};
+  --muted-color: rgba(251, 249, 245, 0.68);
+  --link-color: #{$milk};
+  --border: dashed 1px rgba(251, 249, 245, 0.85);
+  --soft-border: 1px solid rgba(251, 249, 245, 0.18);
+  --panel-background: rgba(251, 249, 245, 0.06);
+  --selection-text: #{$jungle};
+  // Wordmark gradient from the logo's own colours (Sky Blue -> Cherry Blossom Pink)
+  --wordmark-background: linear-gradient(90deg, #{$blue} 0%, #{$pale-blue} 35%, #{$pale-pink} 65%, #{$pink} 100%);
+  --wordmark-fill: transparent;
+  --moon-blend: normal;
+  --light-only: none;
+  --dark-only: block;
+  --night: 1;            // home cover: night sky
+  color-scheme: dark;
+}
+
+// Accent set: pink by default; pages with a `label` swap it.
+@mixin accent($c) {
+  --accent: #{$c};
+  --link-underline: #{$c};
+  --hover-background: #{$c};
+  --hover-text: #{$jungle};
+  --selection-background: #{$c};
+}
+
+:root {
+  @include light();
+  @include accent($pink);
+  --callout-blue: #{$blue};
+  --callout-pink: #{$pink};
+  --callout-purple: #{$purple};
+}
+// Follow the OS unless the visitor picked a theme with the toggle.
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { @include dark(); }
+}
+:root[data-theme="dark"] { @include dark(); }
+
+// Page labels (front matter `label:`)
+.label-transmasculine { @include accent($blue); }
+.label-non-binary { @include accent($purple); }

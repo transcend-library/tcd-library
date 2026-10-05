@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+/**
+ * Adapted from jekyll-theme-console's base.scss: same dashed-rule console
+ * layout, with Transcend fonts and a heading scale (Notion guides rely on
+ * H1–H3 hierarchy, which the original theme flattens to one size).
+ */
+$base-font-family:     'IBM Plex Mono', ui-monospace, monospace;
+$heading-font-family:  'Inter', system-ui, sans-serif;
+$logo-font-family:     'Apfel Grotezk', 'Inter', sans-serif;
+$base-font-size:       14px;
+$mobile-font-size:     13px;
+$base-line-height:     1.6;
+$container-width:      90%;
+$container-max-width:  720px;
+
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('fonts/ApfelGrotezk-Regular.woff2') format('woff2'), url('fonts/ApfelGrotezk-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+// When ApfelGrotezk-Bold.woff2 is added to assets/fonts, uncomment:
+// @font-face {
+//   font-family: 'Apfel Grotezk';
+//   src: url('fonts/ApfelGrotezk-Bold.woff2') format('woff2');
+//   font-weight: 700;
+//   font-display: swap;
+// }
+
+/**
+ * Global
+ */
+html { -webkit-text-size-adjust: 100%; font-size: $base-font-size; }
+html[data-font-size="l"] { font-size: 16px; }
+html[data-font-size="xl"] { font-size: 18px; }
+body { background-color: var(--background-color); margin: 0 auto; padding: 0; font-family: $base-font-family; font-size: 1rem; color: var(--text-color); text-align: left; line-height: $base-line-height; }
+h1, h2, h3, h4, h5, h6 { font-family: $heading-font-family; margin: 0; margin-top: 2em; margin-bottom: 0.6em; font-weight: 700; line-height: 1.25; color: var(--text-color); letter-spacing: -0.01em; }
+h1 { font-size: 2em; margin-top: 0.5em; text-transform: lowercase; }
+h2 { font-size: 1.55em; }
+h3 { font-size: 1.25em; }
+h4 { font-size: 1.08em; font-weight: 600; }
+h5, h6 { font-size: 1em; font-weight: 600; }
+p, ul, ol { margin: 0; color: var(--text-color); }
+a { text-decoration: underline; text-decoration-color: var(--link-underline); text-decoration-thickness: 2px; text-underline-offset: 2px; color: var(--link-color); }
+a:hover { color: var(--hover-text); background-color: var(--hover-background); text-decoration-color: var(--hover-background); }
+@media only screen and (max-width: 500px) { html:not([data-font-size]) { font-size: $mobile-font-size; } }
+
+/**
+ * Layout
+ */
+.container { width: $container-width; max-width: $container-max-width; margin-right: auto; margin-left: auto; }
+p { overflow-wrap: break-word; margin-bottom: 15px; }
+footer { color: var(--muted-color); border-top: var(--border); margin: 40px auto 20px; padding-top: 10px; text-align: right; }
+header { margin-top: 25px; margin-bottom: 10px; }
+main { min-width: 0; }
+img { max-width: 100%; height: auto; }
+u { text-decoration-thickness: 1px; }
+hr { border: 0; border-top: var(--border); margin: 25px 0; }
+
+/**
+ * Highlight/Markup
+ */
+::selection { background: var(--selection-background); color: var(--selection-text); }
+code { font-family: $base-font-family; font-size: 0.92em; padding: 0.1em 0.35em; background: var(--panel-background); border: var(--soft-border); border-radius: 3px; }
+pre { overflow: auto; font-family: $base-font-family; line-height: 1.7; }
+
+/**
+ * Lists — console-style "-" bullets as in the original theme
+ */
+ul, ol { margin-bottom: 15px; padding-left: 1.6em; }
+li { margin-bottom: 0.25em; }
+li > ul, li > ol { margin-top: 0.25em; margin-bottom: 0; }
+:not(.menu) > ul, main ul { list-style: none; padding-left: 1.6em; }
+main ul > li { position: relative; }
+main ul > li::before { content: "-"; position: absolute; left: -1.2em; }
+main ol { padding-left: 2em; }
+
+/**
+ * Header/Navigation
+ */
+.menu { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: var(--border); border-bottom: var(--border); padding: 10px 0; margin-bottom: 25px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-color); font-family: $logo-font-family; font-weight: 700; font-size: 1.35em; letter-spacing: -0.01em; line-height: 1; }
+.logo img { width: 32px; height: 32px; }
+.logo span {
+  // Gradient wordmark in dark mode only; plain text in light mode, where the
+  // pale stops don't read against Milk. Values come from _colors.scss.
+  background: var(--wordmark-background);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: var(--wordmark-fill); color: var(--text-color);
+  padding-bottom: 0.08em;
+}
+.logo:hover { background: none; color: var(--text-color); }
+.menu nav > ul { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.menu nav > ul > li::before { content: none; }
+.menu nav li { margin: 0; }
+.menu a, .menu summary { text-decoration: none; color: var(--text-color); cursor: pointer; }
+.menu nav a:hover, .menu summary:hover { color: var(--hover-text); background-color: var(--hover-background); }
+.prefs { display: inline-flex; gap: 6px; margin-left: 4px !important; }
+.nav-btn { display: none; font: inherit; line-height: 1; padding: 3px 6px; min-width: 2.2em; color: var(--text-color); background: transparent; border: var(--border); cursor: pointer; }
+.js .nav-btn { display: inline-block; }
+#font-toggle { min-width: 4.4em; }
+.nav-btn:hover { color: var(--hover-text); background-color: var(--hover-background); }
+.nav-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.menu [aria-current="page"] { text-decoration: underline; text-decoration-color: var(--link-underline); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+/* /guide dropdown — a <details> element, so it works without JS */
+.dropdown { position: relative; }
+.dropdown summary { list-style: none; }
+.dropdown summary::-webkit-details-marker { display: none; }
+.dropdown summary::after { content: " ▾"; }
+.dropdown details[open] summary::after { content: " ▴"; }
+.dropdown details > ul { position: absolute; right: 0; top: calc(100% + 10px); z-index: 10; min-width: 260px; max-width: calc(100vw - 32px); margin: 0; padding: 8px 0; list-style: none; background: var(--background-color); border: var(--border); box-shadow: 4px 4px 0 var(--accent); }
+.dropdown details > ul > li { position: static; margin: 0; }
+.dropdown details > ul > li::before { content: none; }
+.dropdown details > ul a { display: block; padding: 4px 14px; }
+.dropdown details > ul > li:first-child { border-bottom: var(--border); padding-bottom: 6px; margin-bottom: 6px; }
+.dropdown details > ul > li.menu-sep { border-top: var(--border); margin: 6px 0; height: 0; }
+.menu summary:focus-visible, .menu a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Footer: site name, then the info links to its right, all right-aligned */
+footer { display: flex; justify-content: flex-end; align-items: baseline; flex-wrap: wrap; gap: 6px 14px; }
+.footer-links { display: flex; gap: 14px; }
+.footer-links a { color: var(--muted-color); }
+.footer-links a:hover { color: var(--hover-text); }
+.footer-links a[aria-current="page"] { color: var(--text-color); }
+
+/* Show an element only in the light or dark theme (follows the toggle) */
+.light-only { display: var(--light-only); }
+.dark-only { display: var(--dark-only); }
+
+/* Brand logos on the copyright page */
+.brand-logos { margin: 8px 0 18px; }
+.brand-logos img { width: 100%; max-width: 360px; height: auto; }

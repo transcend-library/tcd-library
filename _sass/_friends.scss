@@ -1,0 +1,43 @@
+/**
+ * /friends page (content/friends.md, _includes/friends-list.html, content/_data/friends.yml).
+ * Each section is a panel with a coloured bar, like the original Discord embeds.
+ */
+.friends-section {
+  margin: 0 0 24px;
+  padding: 4px 18px 18px;
+  background: var(--panel-background);
+  border-left: 4px solid var(--section-colour, var(--accent));
+}
+.friends-pink { --section-colour: var(--callout-pink); }
+.friends-blue { --section-colour: var(--callout-blue); }
+.friends-purple { --section-colour: var(--callout-purple); }
+.friends-section > h2 { margin-top: 0.8em; }
+
+.friends-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 28px; }
+.friend-wide { grid-column: 1 / -1; }
+.friend-has-members { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+@media (max-width: 600px) {
+  .friends-grid, .friend-has-members { grid-template-columns: 1fr; }
+}
+
+.friend-name { display: flex; align-items: center; gap: 0.45em; margin: 0.4em 0 0.2em; font-size: 1.1em; }
+.friend-dot { flex: 0 0 auto; width: 0.85em; height: 0.85em; border-radius: 50%; background: var(--section-colour); }
+.friend-url { margin: 0 0 6px; }
+.friend-desc p { margin-bottom: 10px; }
+.friend-desc > :last-child { margin-bottom: 0; }
+.friend-extra-title { margin: 1em 0 0.3em; }
+
+.friend-members { margin-top: 0.4em; }
+.friend-members-title { font-family: 'Inter', sans-serif; font-weight: 600; margin: 0.4em 0 6px; }
+.friend-members ul { margin: 0; padding-left: 1.2em; border-left: 3px solid var(--soft-border-colour, rgba(128, 128, 128, 0.35)); }
+.friend-members em { color: var(--muted-color); }
+
+/* Crisis helplines block (top of /friends) */
+main ul.helpline-list { list-style: none; padding: 0; margin: 0 0 16px; }
+main ul.helpline-list > li { margin: 0 0 14px; }
+main ul.helpline-list > li::before { content: none; }
+.helpline .friend-name { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.05em; margin: 0 0 2px; }
+main ul.helpline-contacts { margin: 0; padding-left: 1.45em; }
+main ul.helpline-contacts > li { margin: 0; }
+main ul.helpline-contacts > li::before { content: none; }
+.helplines-outro > :last-child { margin-bottom: 0; }

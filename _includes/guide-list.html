@@ -1,0 +1,6 @@
+{%- assign guides = site.guides | sort: "order" -%}
+<ul class="guide-list">
+  {%- for g in guides -%}
+  <li><a href="{{ g.url | relative_url }}">{{ g.title }}</a></li>
+  {%- endfor -%}
+</ul>

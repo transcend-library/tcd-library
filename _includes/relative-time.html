@@ -1,0 +1,10 @@
+{%- comment -%}
+  Relative timestamp, e.g. "3 years ago".
+  Usage: {% include relative-time.html date="2023-04-07" %}
+     or: {% include relative-time.html date=page.updated prefix="on " %}
+  Renders the exact date; assets/js/relative-time.js swaps in the relative
+  text in the browser (so it never goes stale) and keeps the exact date as a
+  tooltip. Without JS, `prefix` + the exact date is shown (e.g. "on 17 November 2022").
+{%- endcomment -%}
+{%- assign _exact = include.date | date: "%-d %B %Y" -%}
+<time class="relative-time" datetime="{{ include.date | date_to_xmlschema }}" title="{{ _exact }}">{{ include.prefix }}{{ _exact }}</time>

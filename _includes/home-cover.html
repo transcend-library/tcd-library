@@ -1,0 +1,14 @@
+{%- comment -%}
+  Animated home page cover: morning sky in light mode, night sky in dark mode.
+  Styles: _sass/_home-cover.scss. Stars: assets/js/home-cover.js.
+{%- endcomment -%}
+<div class="home-cover" aria-hidden="true">
+  <div class="home-cover-sky home-cover-day"></div>
+  <div class="home-cover-sky home-cover-night"></div>
+  <div class="home-cover-stars"></div>
+  <img class="home-cover-moon" src="{{ '/assets/img/moon.svg' | relative_url }}" alt="">
+  {% include home-cover-clouds.html %}
+  <img class="home-cover-skyline home-cover-skyline-day" src="{{ '/assets/img/skyline-day.svg' | relative_url }}" alt="">
+  <img class="home-cover-skyline home-cover-skyline-night" src="{{ '/assets/img/skyline-night.svg' | relative_url }}" alt="">
+</div>
+<script src="{{ '/assets/js/home-cover.js' | relative_url }}" defer></script>

@@ -1,0 +1,5 @@
+{%- comment -%}
+  Distribution notice shown at the top of each guide. Wording lives in
+  content/_data/notices.yml; audience is "community" or "transcend".
+{%- endcomment -%}
+{{- site.data.notices[include.audience] | default: site.data.notices.community -}}

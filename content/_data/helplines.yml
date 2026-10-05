@@ -1,0 +1,37 @@
+# Crisis helplines shown at the top of /friends (_includes/helplines.html).
+# Text fields are Markdown. Entries without a url/href are shown as plain text.
+title: Helplines for suicide and self-harm
+intro: >-
+  If you need urgent help to reach out to someone, consider contacting the
+  following services:
+lines:
+  - name: Samaritans of Singapore
+    url: https://www.sos.org.sg/
+    contacts:
+      - { label: Hotline, value: "1 767", href: "tel:1767" }
+      - { label: WhatsApp, value: "9151 1767", href: "https://wa.me/6591511767" }
+      - { label: Email, value: pat@sos.org.sg, href: "mailto:pat@sos.org.sg" }
+  - name: Mindline
+    url: https://mindline.sg/fsmh
+    contacts:
+      - { label: Hotline, value: "1771", href: "tel:1771" }
+      - { label: WhatsApp, value: "6669 1771", href: "https://wa.me/6566691771" }
+      - { value: mindline.sg/fsmh, href: "https://mindline.sg/fsmh" }
+  - name: Brave Spaces (for LBTQI women)
+    url: https://bravespace.org/contact/
+    contacts:
+      - { label: Hotline, value: "8788 8817", href: "tel:+6587888817" }
+  - name: International helplines
+    url: https://www.befrienders.org/contact-us
+outro: |-
+  Helplines may be hit or miss, and getting yourself hospitalised might not
+  help in the short run. Navigating public psychological healthcare –
+  especially emergency care – can be incredibly difficult, dehumanising, and
+  invalidating.
+  
+  You might not be actively seeking to leave this plane of existence, but the nagging thought still persists. Sure, these thoughts might even be alarming inside your head. But understand that you are not alone, and that the first thing you should do about them is to keep yourself safe, and to reach out, for you are not alone. 
+  
+  Some good reads about this:
+
+  - [About passive suicidal ideation](https://www.verywellmind.com/i-dont-want-to-live-but-i-dont-want-to-die-5220698)
+  - [“I’m indifferent to being alive”](https://www.ricemedia.co/an-open-letter-to-my-parents-about-my-passive-suicidal-ideation/): a RICE personal essay

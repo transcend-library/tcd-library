@@ -1,0 +1,32 @@
+{%- comment -%} Renders content/_data/friends.yml. Styles in _sass/_friends.scss. {%- endcomment -%}
+{%- for s in site.data.friends -%}
+<section class="friends-section friends-{{ s.colour | default: 'pink' }}">
+  <h2>{{ s.section }}</h2>
+  <div class="friends-grid">
+    {%- for o in s.orgs -%}
+    {%- assign host = o.url | remove_first: 'https://' | remove_first: 'http://' | remove_first: 'www.' | split: '/' | first -%}
+    <article class="friend{% if o.wide %} friend-wide{% endif %}{% if o.members %} friend-has-members{% endif %}">
+      <div class="friend-main">
+        <h3 class="friend-name"><span class="friend-dot" aria-hidden="true"></span>{{ o.name }}</h3>
+        <p class="friend-url"><a href="{{ o.url }}">{{ host }}</a></p>
+        <div class="friend-desc">{{ o.description | markdownify }}</div>
+        {%- if o.extra %}
+        <h4 class="friend-extra-title">{{ o.extra_title }}</h4>
+        <div class="friend-desc">{{ o.extra | markdownify }}</div>
+        {%- endif %}
+      </div>
+      {%- if o.members %}
+      <div class="friend-members">
+        <p class="friend-members-title">{{ o.members_title }}:</p>
+        <ul>
+          {%- for m in o.members %}
+          <li>{{ m[0] }} <em>({{ m[1] }})</em></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endif %}
+    </article>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endfor -%}

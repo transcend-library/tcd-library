@@ -1,0 +1,52 @@
+title: transcend library
+description: Community guides from Transcend.
+logo_text: transcend library
+
+# Based on jekyll-theme-console (MIT, see THEME-LICENSE.txt), vendored so the
+# header, fonts and colours can be customised.
+listen_for_clients_preferred_style: true # follow the OS light/dark setting
+
+footer: 'transcend library'
+
+# Keep every page out of search engines (see also robots.txt). A page can
+# override this with its own `robots:` front matter.
+robots: "noindex, nofollow, noarchive, nosnippet, noimageindex"
+
+# Allow style="" attributes (cover image focal point, image widths from Notion).
+csp_extra: "style-src-attr 'unsafe-inline';"
+
+# Everything you'd edit by hand lives in content/: pages, guides (_guides)
+# and data/wording files (_data).
+collections_dir: content
+data_dir: content/_data
+
+collections:
+  guides:
+    output: true
+    permalink: /guide/:name/
+  side:            # side pages: linked from guides, not listed in menus (URL set per page)
+    output: true
+
+defaults:
+  - scope: { path: "", type: guides }
+    values: { layout: guide }
+  - scope: { path: "", type: side }
+    values: { layout: guide }
+
+plugins:
+  - jekyll-seo-tag
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
+exclude:
+  - "*.zip"
+  - _tools
+  - Gemfile
+  - Gemfile.lock
+  - THEME-LICENSE.txt
+  - README.md
+  - vendor

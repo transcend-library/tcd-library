@@ -1,0 +1,91 @@
+# Organisations listed on /friends (friends.md). Text fields are Markdown.
+- section: Transgender support
+  colour: pink
+  orgs:
+    - name: TransgenderSG
+      url: https://transgender.sg/
+      description: >-
+        The group maintains an online information hub and engages in advocacy
+        work on the national level. Their site covers many aspects of
+        transitioning in Singapore from coming out to changing documents.
+
+    - name: TransBefrienders
+      url: https://www.transbefrienders.com/
+      description: >-
+        Peer support organisation for trans youths. They operate a study
+        support scheme to mentor students going through the N/O/A Levels, and
+        also run a befriending service for trans youths. They have a [Telegram
+        channel for trans/LGBT-related events](https://t.me/+JV2HJRuSA1xhNmY1).
+
+    - name: The T Project
+      url: https://www.thetprojectsg.org/
+      wide: true
+      description: >-
+        Singapore’s first and only social service for the transgender
+        community. They provide professional counselling for sexual orientation
+        and gender identity, relationships, personal issues (school and
+        National Service) and others (including partner violence, bereavement
+        and loss).
+      extra_title: Shelter for temporary accommodation
+      extra: |-
+        The T Project runs a [shelter offering temporary accommodation for trans
+        people](https://www.thetprojectsg.org/application) up to a maximum of 6
+        months. You need to be attached to a social worker via a [Family Service
+        Centre](https://www.msf.gov.sg/our-services/directories).
+        Ask for a referral to The T Project shelter from your assigned social
+        worker. View the [shelter admissions guidebook](https://static1.squarespace.com/static/5ba249855cfd7946edf8d34b/t/60363d627d6e5c225a4693a8/1614167400467/Shelter+Admissions+handbook+.pdf)
+        for shelter rules and admission guidelines.
+
+        Given the capacity of the shelter and how social services can be
+        strained in Singapore, you should consider it as a last resort. If you
+        risk homelessness due to transitioning, it may be prudent to attempt to
+        gain financial independence. Don’t be ashamed to call for help if you
+        have no other options.
+
+- section: LGBTQ+ support
+  colour: blue
+  orgs:
+    - name: Oogachaga
+      url: https://oogachaga.com/
+      wide: true
+      description: |-
+        A community-based, non-profit, professional organisation working with
+        LGBTQ+ individuals, couples and families in Singapore since 1999. They
+        offer email, text and professional counselling.
+
+        They wrote [I’ll Walk With You](https://www.congregaytion.com/ill-walk-with-you)
+        – a guide for parents of transgender children, available in English /
+        Malay / Mandarin / Tamil. It’s helpful for explaining the concept of
+        being transgender to a parent, and answers various questions they might
+        have.
+
+    - name: kayos kollective
+      url: https://kayoskollective.wordpress.com/ 
+      wide: true
+      description: >-
+        kayos kollective (kayos for short, pronounced kay·os) is a Singaporean research lab focusing on intersectional (mostly queer-oriented) projects.
+      extra_title: kayos' toolkits
+      extra: |- 
+        kayos's [sexual health toolkit](https://kayoskollective.wordpress.com/2024/06/23/sexual-health-toolkit/) is a beginner-friendly resource to promote sexual health awareness that tells you everything you need to know about sexual health. 
+        
+        They also have a [mental health toolkit]( https://kayoskollective.wordpress.com/2024/06/25/mental-health-toolkit/) aimed at LGBTQ+ people, helping them deal with issues like coming out, minority stress, discrimination, neurodivergence and related mental health issues. 
+
+    - name: qUNI
+      url: https://www.instagram.com/qunisg/?hl=en 
+      wide: true
+      description: >-
+        qUNI is a collective of queer student groups from various tertiary schools in SG, aiming to build a wider queer community across campuses. 
+      members_title: qUNI's network consists of
+      members: 
+        - [QueerNUS, National University of Singapore]
+        - [TransNUS, National University of Singapore]
+        - [NUSG, NUS College]
+        - [SIT, Q-Space]
+        - [TRU Collective, The Rainbow Underground]
+        - [SS Queers, SUSS/SIM]
+                                   
+    - name: NTU Kaleidoscope
+      url: https://www.instagram.com/ntukaleidoscope/?hl=en
+      wide: true
+      description: >-
+        Nanyang Technological University's queer student group — giving voice and visibility to its     community. Publishes zines and organises orientation sessions for new students.

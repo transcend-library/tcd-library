@@ -1,0 +1,26 @@
+# Notion export zips (private source archives; never published)
+/_sources/
+
+# Jekyll build output and caches (regenerated on every build)
+/_site/
+/.jekyll-cache/
+/.jekyll-metadata
+/.sass-cache/
+
+# Ruby / Bundler
+/.bundle/
+/vendor/
+
+# Notion sync: pending Notion changes waiting to be merged (temporary).
+# The baselines in _tools/notion-sync/baseline/ are kept on purpose.
+/_tools/notion-sync/incoming/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local editor / tool settings
+.claude/settings.local.json
+
+# macOS
+.DS_Store

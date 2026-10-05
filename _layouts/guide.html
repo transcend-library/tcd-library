@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{% include guide-pager.html position="top" %}
+<article class="guide">
+  {%- if page.parent -%}
+  {%- assign parent = site.guides | where_exp: "g", "g.url contains page.parent" | first -%}
+  {%- if parent -%}
+  <p class="page-parent"><a href="{{ parent.url | relative_url }}">← {{ parent.title }}</a></p>
+  {%- endif -%}
+  {%- endif -%}
+  {%- if page.cover -%}
+  <div class="cover{% if page.cover_full %} cover-full{% endif %}"><img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | escape }}" style="object-position: center {{ page.cover_position | default: '50%' }}"></div>
+  {%- endif -%}
+  <h1 class="page-title">{{ page.title }}</h1>
+  {%- if page.date and page.collection != "side" -%}
+  <p class="page-meta">Published <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+    {%- if page.last_modified_at %} · Updated <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%-d %B %Y" }}</time>{% endif -%}
+  </p>
+  {%- endif -%}
+  {{ content }}
+</article>
+{% include guide-pager.html position="bottom" %}

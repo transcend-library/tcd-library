@@ -1,0 +1,18 @@
+{%- assign guides = site.guides | sort: "order" -%}
+<ul class="guide-cards">
+  {%- for g in guides -%}
+  <li>
+    <a class="guide-card{% if g.label %} label-{{ g.label | slugify }}{% endif %}" href="{{ g.url | relative_url }}">
+      {%- if g.cover -%}
+      <img src="{{ g.cover | relative_url }}" alt="" loading="lazy" style="object-position: center {{ g.cover_position | default: '50%' }}">
+      {%- endif -%}
+      <span class="guide-card-body">
+        <span class="guide-card-title">{{ g.title }}</span>
+        {%- if g.date -%}<span class="guide-card-meta">Published {{ g.date | date: "%-d %B %Y" }}
+          {%- if g.last_modified_at %}<br>Updated {{ g.last_modified_at | date: "%-d %B %Y" }}{% endif -%}
+        </span>{%- endif -%}
+      </span>
+    </a>
+  </li>
+  {%- endfor -%}
+</ul>

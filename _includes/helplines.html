@@ -1,0 +1,23 @@
+{%- comment -%} Renders content/_data/helplines.yml. Styles in _sass/_friends.scss. {%- endcomment -%}
+{%- assign h = site.data.helplines -%}
+<section class="friends-section friends-blue helplines" aria-labelledby="helplines-title">
+  <h2 id="helplines-title">{{ h.title }}</h2>
+  {{ h.intro | markdownify }}
+  <ul class="helpline-list">
+    {%- for l in h.lines %}
+    <li class="helpline">
+      <p class="friend-name"><span class="friend-dot" aria-hidden="true"></span>
+        {%- if l.url -%}<a href="{{ l.url }}">{{ l.name }}</a>{%- else -%}{{ l.name }}{%- endif -%}
+      </p>
+      {%- if l.contacts %}
+      <ul class="helpline-contacts">
+        {%- for c in l.contacts %}
+        <li>{% if c.label %}{{ c.label }}: {% endif %}{% if c.href %}<a href="{{ c.href }}">{{ c.value }}</a>{% else %}{{ c.value }}{% endif %}</li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+  <div class="helplines-outro">{{ h.outro | markdownify }}</div>
+</section>

@@ -1,0 +1,36 @@
+{%- assign guides = site.guides | sort: "order" -%}
+<header>
+  <div class="menu">
+    <a class="logo" href="{{ '/' | relative_url }}">
+      <img class="light-only" src="{{ '/assets/img/brand/brandmark-light.svg' | relative_url }}" alt="" width="32" height="32">
+      <img class="dark-only" src="{{ '/assets/img/brand/brandmark-dark.svg' | relative_url }}" alt="" width="32" height="32">
+      <span>{{ site.logo_text }}</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li class="dropdown">
+          <details>
+            <summary{% if page.collection == "guides" or page.collection == "side" or page.url == "/guide/" %} aria-current="page"{% endif %}>/guide</summary>
+            <ul>
+              <li><a href="{{ '/guide/' | relative_url }}"{% if page.url == "/guide/" %} aria-current="page"{% endif %}>all guides</a></li>
+              {%- assign last_group = nil -%}
+              {%- for g in guides -%}
+              {%- if last_group and g.nav_group != last_group -%}
+              <li class="menu-sep" role="separator"></li>
+              {%- endif -%}
+              {%- assign last_group = g.nav_group -%}
+              <li><a href="{{ g.url | relative_url }}"{% if page.url == g.url %} aria-current="page"{% endif %}>{{ g.nav_title | default: g.title | escape }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        </li>
+        <li><a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>/about</a></li>
+        <li><a href="{{ '/friends/' | relative_url }}"{% if page.url == "/friends/" %} aria-current="page"{% endif %}>/friends</a></li>
+        <li class="prefs">
+          <button type="button" class="nav-btn" id="font-toggle" aria-label="Text size">aA</button>
+          <button type="button" class="nav-btn" id="theme-toggle" aria-label="Switch colour theme">&#9790;&#xFE0E;</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

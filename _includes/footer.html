@@ -1,0 +1,7 @@
+<footer>
+  <span>{{ site.footer }}</span>
+  <nav class="footer-links" aria-label="Site information">
+    <a href="{{ '/disclaimer/' | relative_url }}"{% if page.url == "/disclaimer/" %} aria-current="page"{% endif %}>disclaimer</a>
+    <a href="{{ '/copyright/' | relative_url }}"{% if page.url == "/copyright/" %} aria-current="page"{% endif %}>copyright</a>
+  </nav>
+</footer>

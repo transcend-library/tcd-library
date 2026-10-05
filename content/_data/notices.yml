@@ -1,0 +1,9 @@
+# Distribution notice shown at the top of each guide (_includes/notice.html).
+# Which one a guide uses is set per page in the converter (NOTICES). Markdown.
+community: >-
+  This document is for intra-community dissemination only. Please keep it
+  within Transcend, other LGBTQ+ Discord servers and queer organisations, and
+  **don't circulate it publicly.**
+transcend: >-
+  This document is for internal dissemination within Transcend only. **Please
+  don't share it outside of Transcend.**

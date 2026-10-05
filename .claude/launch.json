@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jekyll",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "export GEM_HOME=$HOME/.gem/ruby/3.4.1 GEM_PATH=$HOME/.gem/ruby/3.4.1:$HOME/.rubies/ruby-3.4.1/lib/ruby/gems/3.4.0; exec jekyll serve --port 4000 --livereload-port 35730"],
+      "port": 4000
+    }
+  ]
+}

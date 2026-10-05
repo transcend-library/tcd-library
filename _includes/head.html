@@ -1,0 +1,25 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  {%- seo title=false -%}
+
+  {%- assign robots = page.robots | default: site.robots -%}
+  {%- if robots %}
+  <meta name="robots" content="{{ robots }}" />
+  {%- endif %}
+
+  <script src="{{ '/assets/js/prefs.js' | relative_url }}"></script>
+  <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
+  <link rel="preload" href="{{ '/assets/fonts/ApfelGrotezk-Regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{{ "/assets/main.css" | relative_url }}">
+  <script src="{{ '/assets/js/nav.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/relative-time.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/db-filter.js' | relative_url }}" defer></script>
+</head>
