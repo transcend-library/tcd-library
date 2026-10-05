@@ -1,6 +1,12 @@
 title: transcend library
 url: "https://transcend-library.github.io"   # GitHub Pages address (baseurl is set by the workflow)
-description: Community guides from Transcend.
+description: Community-written guides to trans healthcare, transition and support in Singapore, from Transcend.
+locale: en_SG
+
+# Link previews (Discord etc.): default image for pages without a cover (see _plugins/social.rb)
+social_image: /assets/img/social-card.png
+twitter:
+  card: summary_large_image   # large image previews
 logo_text: transcend library
 
 # Based on jekyll-theme-console (MIT, see THEME-LICENSE.txt), vendored so the

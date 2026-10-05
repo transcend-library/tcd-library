@@ -12,6 +12,10 @@
   {%- endif %}
 
   <script src="{{ '/assets/js/prefs.js' | relative_url }}"></script>
+  {%- assign theme_colour = "#FFAFC7" -%}
+  {%- if page.label == "transmasculine" -%}{%- assign theme_colour = "#74D7EC" -%}
+  {%- elsif page.label == "non-binary" -%}{%- assign theme_colour = "#967BB6" -%}{%- endif %}
+  <meta name="theme-color" content="{{ theme_colour }}">
   <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
   <link rel="preload" href="{{ '/assets/fonts/ApfelGrotezk-Regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">

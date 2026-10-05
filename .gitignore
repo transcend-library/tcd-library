@@ -24,3 +24,6 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+# Remote covers downloaded by _tools/make_previews.py
+/_tools/preview-cache/

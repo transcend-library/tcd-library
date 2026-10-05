@@ -8,6 +8,7 @@ order: 0
 cover: "/assets/img/about-cover.webp"
 cover_position: "45%"
 cover_full: true
+image: "/assets/img/social-card.png"   # link-preview image (the cover photo stays as the page banner)
 cover_alt: "A placard on top of a Blahaj is shown with a graph captioned “We’ve always been here… and we always will be (no matter how much you try to stop us)”. The graph is titled ‘number of trans people over time’, and has a curve similar to that of historical records of left-handed people over time. Image by ellis-ralsei for Transcend."
 ---
 
