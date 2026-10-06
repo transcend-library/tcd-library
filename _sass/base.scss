@@ -130,5 +130,20 @@ footer { display: flex; justify-content: flex-end; align-items: baseline; flex-w
 .dark-only { display: var(--dark-only); }
 
 /* Brand logos on the copyright page */
-.brand-logos { margin: 8px 0 18px; }
+.brand-logos { margin: 8px 0 18px; text-align: center; }
+.brand-logos img { margin: 0 auto; }
 .brand-logos img { width: 100%; max-width: 360px; height: auto; }
+
+/* Small screens: the nav wraps under the logo and /guide sits at the left edge, so
+   drop the menu down as a full-width panel under the whole nav bar instead of
+   hanging it off /guide (which pushed it off-screen). */
+/* nav.js adds .menu-stacked whenever the nav wraps below the logo (any width or text
+   size); the media query is the no-JS fallback. */
+.menu.menu-stacked { position: relative; }
+.menu.menu-stacked .dropdown { position: static; }
+.menu.menu-stacked .dropdown details > ul { left: 0; right: 0; top: calc(100% + 6px); min-width: 0; max-width: none; }
+@media (max-width: 600px) {
+  .menu { position: relative; }
+  .dropdown { position: static; }
+  .dropdown details > ul { left: 0; right: 0; top: calc(100% + 6px); min-width: 0; max-width: none; }
+}

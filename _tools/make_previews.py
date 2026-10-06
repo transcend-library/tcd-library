@@ -4,13 +4,13 @@
 For each page in content/_guides/ with a `cover:`, writes
 assets/img/previews/<file name>.jpg: the cover cropped to fill 1200x630
 (keeping its `cover_position` focal point), with the overlay
-(_tools/assets/preview-overlay.svg) in the top-right corner at 15% of the
-image height and ~3% padding. _plugins/social.rb uses these automatically.
+(_tools/assets/preview-overlay.png, transparent background) in the top-right
+corner at 15% of the image height and ~3% padding. _plugins/social.rb uses
+these automatically.
 
 Re-run after changing a cover or the overlay:
     python3 _tools/make_previews.py
-Needs ImageMagick (`magick`), `rsvg-convert` and `curl`. The overlay's text is
-set in Apfel Grotezk, so that font must be installed where this runs.
+Needs ImageMagick (`magick`) and `curl` (for covers hosted elsewhere).
 """
 import hashlib
 import re
@@ -18,7 +18,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OVERLAY_SVG = ROOT / "_tools" / "assets" / "preview-overlay.svg"
+OVERLAY = ROOT / "_tools" / "assets" / "preview-overlay.png"
 OUT = ROOT / "assets" / "img" / "previews"
 CACHE = ROOT / "_tools" / "preview-cache"   # downloaded remote covers (git-ignored)
 
@@ -51,10 +51,7 @@ def local_cover(cover):
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     CACHE.mkdir(parents=True, exist_ok=True)
-    # Overlay: rasterise at 4x for crisp text, then scale down to the final height.
-    overlay_png = CACHE / "overlay.png"
-    subprocess.run(["rsvg-convert", "-h", str(OVERLAY_H * 4), "-b", "none", str(OVERLAY_SVG),
-                    "-o", str(overlay_png)], check=True)
+    overlay_png = OVERLAY
     for page in sorted((ROOT / "content" / "_guides").glob("*.md")):
         fm = front_matter(page)
         cover = fm.get("cover")

@@ -25,6 +25,23 @@
     });
   });
 
+  /* ---- /guide dropdown: full-width panel when the nav has wrapped under the logo ---- */
+  var menu = document.querySelector(".menu");
+  var logo = document.querySelector(".menu .logo");
+  var guideSummary = document.querySelector(".dropdown summary");
+  function layoutMenu() {
+    if (!menu || !logo || !guideSummary) return;
+    menu.classList.remove("menu-stacked");
+    var stacked = guideSummary.getBoundingClientRect().top >= logo.getBoundingClientRect().bottom;
+    menu.classList.toggle("menu-stacked", stacked);
+  }
+  layoutMenu();
+  window.addEventListener("resize", layoutMenu);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutMenu);
+  document.querySelectorAll(".dropdown details").forEach(function (d) {
+    d.addEventListener("toggle", layoutMenu);
+  });
+
   /* ---- light / dark toggle ---- */
   var themeBtn = document.getElementById("theme-toggle");
   var systemDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -73,6 +90,7 @@
       else root.removeAttribute("data-font-size");
       store("font-size", next.key);
       renderSize();
+      layoutMenu();
     });
     renderSize();
   }

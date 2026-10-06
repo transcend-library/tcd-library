@@ -94,11 +94,11 @@ If you’ve already gone through the gender-affirming care routes that are avail
 
 Some hospitals, like CGH, have trained psychologists who can help in talking therapy when it comes to issues like gender. At CGH, you’ll get an open appointment date that you can use to seek assistance with regards to other issues apart from gender, as well as help with talking therapy and psychotherapy.
 
-We’re still not sure as to whether NUH or other hospitals provide psychological care. It is possible to get psychological care from other hospitals and to be assessed for other mental health conditions (like depression, ADHD and autism); the process to do so is largely similar to the process of getting a gender dysphoria diagnosis through a polyclinic.
+It is possible to get psychological care from other hospitals and to be assessed for other mental health conditions (like depression, ADHD and autism); the process to do so is largely similar to the process of getting a gender dysphoria diagnosis through a polyclinic.
 
 It is also generally possible for you to see a psychologist at some polyclinics, or be referred to an IMH psychologist or psychiatrist.
 
-If you want to be assessed for certain mental health conditions in public healthcare - do note that these will inadvertently show up on records, and while discrimination based on mental health conditions is illegal, it may continue to happen. If you can afford it and want to be assessed for a certain condition (like autism or ADHD) and do not want it to be formally placed on the record, then it may be better to seek out private practice.
+If you want to be assessed for certain mental health conditions in public healthcare - do note that these will inadvertently show up on records. Your employer should not have access to any of them. If you can afford it and want to be assessed for a certain condition (like autism or ADHD) and do not want it to be formally placed on the record, then it may be better to seek out private practice.
 
 ### Psychological medicine in private healthcare
 {: #h-368c1663-dd06-4ef4-94a1-08abaa39fc9a}
@@ -119,14 +119,14 @@ Note that some of these private psychiatrists may be able to help you get throug
 <p class="db-title"><strong>Private psychiatric support and assessments</strong></p>
 <div class="db-cards">
 <article class="db-card">
-<h3 class="db-card-title">Dr Zheng</h3>
+<h3 class="db-card-title">Dr Zheng Zhimin</h3>
 <div class="db-card-type"><span class="db-card-role">Psychiatric assessment</span></div>
-<dl class="db-card-fields"><dt>Prices and costs</dt><dd>$170 for first 15 minutes; $90 for every 15 minutes afterward</dd><dt>What else can they provide?</dt><dd>Assessments for procedures like sex reassignment surgery<br>Doctor’s memos for SAF medical reviews or university admissions</dd><dt>Remarks</dt><dd><em>We don’t know much about Dr Zheng and where she would recommend if you’re going to private endocrinology. <br></em><br><em>Dr Zheng will probably continue to be a good</em> (if not costly) <em>place for things like memos for NS/university/school accommodations and visits with parents.</em></dd></dl>
+<dl class="db-card-fields"><dd><a href="https://www.dr-zhengzhimin.com/">Website</a></dd><dt>What can they provide?</dt><dd>Assessments for procedures like sex reassignment surgery<br>Doctor’s memos for SAF medical reviews or university admissions</dd><dt>Remarks</dt><dd><em>Dr Zheng will likely give you a reference for a public endocrinologist, though private endos can be available on request.<br></em><br><em>She will probably continue to be a good</em> (if not costly) <em>place for things like memos for NS/university/school accommodations and visits with parents.</em></dd></dl>
 </article>
 <article class="db-card">
 <h3 class="db-card-title">Dr Tan Sheng Neng</h3>
 <div class="db-card-type"><span class="db-card-role">Psychiatric assessment</span></div>
-<dl class="db-card-fields"><dt>Prices and costs</dt><dd>First session $300<br>About $100-200 for subsequent sessions</dd><dt>What else can they provide?</dt><dd>Assessments for HRT (with the private route)</dd><dt>Remarks</dt><dd>A diagnosis with GD will be more thorough with more sessions to get through.</dd></dl>
+<dl class="db-card-fields"><dd><a href="https://www.thesafetynet.com.sg/">Website</a></dd><dt>What can they provide?</dt><dd>Assessments for HRT (with the private route)</dd><dt>Remarks</dt><dd>A diagnosis with GD will be more thorough with more sessions to get through.</dd></dl>
 </article>
 </div>
 
@@ -146,7 +146,7 @@ Seeking counselling and psychotherapy will also help with dealing with some aspe
 <div class="callout-icon" aria-hidden="true"><img src="/assets/notion/psychological-emotional-resources/ralpoint.png" alt=""></div>
 <div class="callout-body" markdown="1">
 
-The following section is written from Ralsei’s perspective - reach out to them for more details on Transcend!
+The following section is written from the Pleiadesfolk’s (Ralsei's) perspective.
 
 </div>
 </aside>
@@ -191,10 +191,9 @@ A list of providers for counselling and psychotherapy (from the version 1 guide)
 <p class="db-card-links"><a href="https://counsel.org.sg/">Website</a></p>
 </article>
 <article class="db-card">
-<h3 class="db-card-title">The Relational Counselling Studio</h3>
-<div class="db-card-type"><span class="db-card-role">Professional therapy</span></div>
-<dl class="db-card-fields"><dt>Prices and costs</dt><dd><em>unknown</em></dd></dl>
-<p class="db-card-links"><a href="mailto:andrea.mayrhofer@therelational.com.sg">Website</a></p>
+<h3 class="db-card-title">Singapore Counselling Centre</h3>
+<div class="db-card-type"><span class="db-card-role">Professional counselling</span></div>
+<p class="db-card-links"><a href="https://scc.sg/e/">Website</a> <a href="https://scc.sg/e/counselling-fees/">Prices and costs</a></p>
 </article>
 <article class="db-card">
 <h3 class="db-card-title">Alliance Counselling</h3>
@@ -211,6 +210,6 @@ A list of providers for counselling and psychotherapy (from the version 1 guide)
 <h3 class="db-card-title">CGH Psychological Medicine</h3>
 <div class="db-card-type"><span class="db-card-role">Psychology and psychotherapy</span></div>
 <dl class="db-card-fields"><dt>Prices and costs</dt><dd>$40 per session</dd><dt>What else can they provide?</dt><dd>You can visit the psychologist if needed; it’s uncertain if you can bring family members or others.</dd></dl>
-<p class="db-card-links"><a href="-">Website</a></p>
+<p class="db-card-links"><a href="https://www.cgh.com.sg/our-specialties/psychological-medicine">Website</a></p>
 </article>
 </div>

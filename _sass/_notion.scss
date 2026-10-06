@@ -57,8 +57,8 @@ details.toggle > div { padding-left: 1.2em; margin-top: 0.6em; }
 @media (max-width: 600px) { .columns { flex-direction: column; gap: 0; } }
 
 /* Images */
-figure.image { margin: 0 0 15px; }
-figure.image img { display: block; max-width: 100%; height: auto; }
+figure.image { margin: 0 0 15px; text-align: center; }   /* inline images are centred */
+figure.image img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
 figure.image a:hover { background: none; }
 
 /* Zoom: hover hint on the page, click opens the lightbox (nav.js) */
